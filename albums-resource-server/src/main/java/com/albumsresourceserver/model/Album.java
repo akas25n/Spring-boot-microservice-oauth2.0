@@ -1,22 +1,29 @@
-package com.albumsresourceserver.response;
+package com.albumsresourceserver.model;
 
-import java.util.List;
+import javax.persistence.*;
 
-public class AlbumsResponse {
+@Entity
+@Table(name = "albums_TBL")
+public class Album {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String albumTitle;
     private String albumDescription;
     private String albumImage;
-    private List<PhotosResponse> photos;
 
-    public AlbumsResponse() {
+    public Album() {
     }
 
-    public AlbumsResponse(String albumTitle, String albumDescription, String albumImage, List<PhotosResponse> photos) {
+    public Album(String albumTitle, String albumDescription, String albumImage) {
         this.albumTitle = albumTitle;
         this.albumDescription = albumDescription;
         this.albumImage = albumImage;
-        this.photos = photos;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getAlbumTitle() {
@@ -41,13 +48,5 @@ public class AlbumsResponse {
 
     public void setAlbumImage(String albumImage) {
         this.albumImage = albumImage;
-    }
-
-    public List<PhotosResponse> getPhotos() {
-        return photos;
-    }
-
-    public void setPhotos(List<PhotosResponse> photos) {
-        this.photos = photos;
     }
 }

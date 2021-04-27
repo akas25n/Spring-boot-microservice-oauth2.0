@@ -1,22 +1,23 @@
-package com.photosresourceserver.response;
+package com.albumsresourceserver.responseModel;
 
-public class PhotosResponse {
+public class PhotoResponse {
+
     private String photoTitle;
     private String photoDescription;
     private String photoLocation;
     private String photoUrl;
     private long albumId;
 
-    public PhotosResponse() {
+    public PhotoResponse() {
     }
 
-    public PhotosResponse(String photoTitle, String photoDescription, String photoLocation, String photoUrl, long albumId) {
+    public PhotoResponse(String photoTitle, String photoDescription, String photoLocation, String photoUrl) {
         this.photoTitle = photoTitle;
         this.photoDescription = photoDescription;
         this.photoLocation = photoLocation;
         this.photoUrl = photoUrl;
-        this.albumId = albumId;
     }
+
 
     public String getPhotoTitle() {
         return photoTitle;
@@ -50,11 +51,7 @@ public class PhotosResponse {
         this.photoUrl = photoUrl;
     }
 
-    public long getAlbumId() {
-        return albumId;
-    }
-
-    public void setAlbumId(long albumId) {
+    public PhotoResponse(long albumId) {
         this.albumId = albumId;
     }
 }

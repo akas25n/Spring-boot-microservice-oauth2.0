@@ -1,33 +1,21 @@
-package com.photosresourceserver.model;
+package com.photosresourceserver.responseModel;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "photos_TBL")
-public class Photos {
-
-    @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    private long id;
+public class PhotoResponse {
     private String photoTitle;
     private String photoDescription;
     private String photoLocation;
     private String photoUrl;
     private long albumId;
 
-    public Photos() {
+    public PhotoResponse() {
     }
 
-    public Photos(String photoTitle, String photoDescription, String photoLocation, String photoUrl, long albumId) {
+    public PhotoResponse(String photoTitle, String photoDescription, String photoLocation, String photoUrl, long albumId) {
         this.photoTitle = photoTitle;
         this.photoDescription = photoDescription;
         this.photoLocation = photoLocation;
         this.photoUrl = photoUrl;
         this.albumId = albumId;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getPhotoTitle() {
