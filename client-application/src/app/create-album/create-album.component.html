@@ -1,0 +1,33 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-text">
+          Create New Album
+        </span>
+    </nav>
+    <br>
+    <form onsubmit="onSubmit()">
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="album.albumTitle" placeholder="Title">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Description">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Image Url">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Creation Date (Format - dd/MM/yyyy)">
+              </div>
+          </div>
+          <br>
+          <div style="text-align: center;">
+            <button type="submit" class="btn mr-1 btn-primary">Submit</button>
+            <button type="submit" class="btn btn-secondary">Cancel</button>
+          </div>
+    </form>
+</div>
+
