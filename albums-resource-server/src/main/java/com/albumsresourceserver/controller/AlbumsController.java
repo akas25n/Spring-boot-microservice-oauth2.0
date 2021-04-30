@@ -10,11 +10,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/albums")
-public class AlbumController {
+@CrossOrigin(origins = "http://localhost:4200")
+public class AlbumsController {
 
     private AlbumService albumService;
 
-    public AlbumController(AlbumService albumService, RestTemplate restTemplate) {
+    public AlbumsController(AlbumService albumService, RestTemplate restTemplate) {
         this.albumService = albumService;
     }
 

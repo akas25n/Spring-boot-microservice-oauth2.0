@@ -11,14 +11,16 @@ public class Album {
     private long id;
     private String albumTitle;
     private String albumDescription;
+    public String albumCreatedOn;
     private String albumImage;
 
     public Album() {
     }
 
-    public Album(String albumTitle, String albumDescription, String albumImage) {
+    public Album(String albumTitle, String albumDescription, String albumCreatedOn, String albumImage) {
         this.albumTitle = albumTitle;
         this.albumDescription = albumDescription;
+        this.albumCreatedOn = albumCreatedOn;
         this.albumImage = albumImage;
     }
 
@@ -40,6 +42,14 @@ public class Album {
 
     public void setAlbumDescription(String albumDescription) {
         this.albumDescription = albumDescription;
+    }
+
+    public String getAlbumCreatedOn() {
+        return albumCreatedOn;
+    }
+
+    public void setAlbumCreatedOn(String albumCreatedOn) {
+        this.albumCreatedOn = albumCreatedOn;
     }
 
     public String getAlbumImage() {

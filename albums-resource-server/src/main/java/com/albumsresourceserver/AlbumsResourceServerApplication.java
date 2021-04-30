@@ -9,10 +9,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class AlbumResourceServerApplication {
+public class AlbumsResourceServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AlbumResourceServerApplication.class, args);
+        SpringApplication.run(AlbumsResourceServerApplication.class, args);
     }
 
     @Bean

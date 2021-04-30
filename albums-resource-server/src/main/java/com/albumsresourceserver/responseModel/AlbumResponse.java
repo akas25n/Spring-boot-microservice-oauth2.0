@@ -6,15 +6,17 @@ public class AlbumResponse {
 
     private String albumTitle;
     private String albumDescription;
+    public String albumCreatedOn;
     private String albumImage;
     private List<PhotoResponse> photos;
 
     public AlbumResponse() {
     }
 
-    public AlbumResponse(String albumTitle, String albumDescription, String albumImage, List<PhotoResponse> photos) {
+    public AlbumResponse(String albumTitle, String albumDescription, String albumCreatedOn, String albumImage, List<PhotoResponse> photos) {
         this.albumTitle = albumTitle;
         this.albumDescription = albumDescription;
+        this.albumCreatedOn = albumCreatedOn;
         this.albumImage = albumImage;
         this.photos = photos;
     }
@@ -33,6 +35,14 @@ public class AlbumResponse {
 
     public void setAlbumDescription(String albumDescription) {
         this.albumDescription = albumDescription;
+    }
+
+    public String getAlbumCreatedOn() {
+        return albumCreatedOn;
+    }
+
+    public void setAlbumCreatedOn(String albumCreatedOn) {
+        this.albumCreatedOn = albumCreatedOn;
     }
 
     public String getAlbumImage() {
