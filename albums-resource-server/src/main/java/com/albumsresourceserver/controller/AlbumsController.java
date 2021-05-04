@@ -43,9 +43,7 @@ public class AlbumsController {
 
     @PutMapping("/{id}")
     public Album updateAlbum(@RequestBody Album newAlbum, @PathVariable long id){
-
         Album album = albumService.findAlbumsById(id);
-
         album.setAlbumDescription(newAlbum.getAlbumDescription());
         album.setAlbumTitle(newAlbum.getAlbumTitle());
         album.setAlbumImage(newAlbum.getAlbumImage());

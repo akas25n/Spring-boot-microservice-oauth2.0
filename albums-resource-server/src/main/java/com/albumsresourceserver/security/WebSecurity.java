@@ -15,7 +15,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
         authenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConverter());
 
-        http
+        http.cors()
+            .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.GET, "/api/albums")
             .hasRole("admin")
