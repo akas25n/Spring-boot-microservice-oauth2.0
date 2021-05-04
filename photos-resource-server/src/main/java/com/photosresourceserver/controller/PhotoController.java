@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/photos")
 public class PhotoController {
 
@@ -30,15 +31,11 @@ public class PhotoController {
     public List<PhotoResponse> albumsPhotos(@PathVariable long albumId){
         List<PhotoResponse> responses = new ArrayList<>();
         List<Photo> photos = photoService.getPhotosByAlbumId(albumId);
-
         if (photos == null || photos.isEmpty()){
             return responses;
         }
-
         Type listType = new TypeToken<List<PhotoResponse>>(){}.getType();
-
         responses = new ModelMapper().map(photos, listType);
-
         return responses;
     }
 

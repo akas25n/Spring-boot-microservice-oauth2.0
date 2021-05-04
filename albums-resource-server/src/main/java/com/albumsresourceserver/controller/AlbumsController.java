@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/albums")
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/albums")
 public class AlbumsController {
 
     private AlbumService albumService;
