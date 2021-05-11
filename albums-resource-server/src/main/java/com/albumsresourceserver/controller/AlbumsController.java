@@ -46,6 +46,7 @@ public class AlbumsController {
         Album album = albumService.findAlbumsById(id);
         album.setAlbumDescription(newAlbum.getAlbumDescription());
         album.setAlbumTitle(newAlbum.getAlbumTitle());
+        album.setAlbumCreatedOn(newAlbum.getAlbumCreatedOn());
         album.setAlbumImage(newAlbum.getAlbumImage());
 
         return albumService.saveNewAlbum(album);

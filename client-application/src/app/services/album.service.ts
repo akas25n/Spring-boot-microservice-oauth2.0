@@ -8,7 +8,7 @@ import {Album} from "../models/album";
 })
 export class AlbumService {
 
-  private baseUrl = "http://localhost:8090/api/albums"
+  private baseUrl = "http://localhost:8092/api/albums"
 
   constructor( private httpClient: HttpClient) { }
 
