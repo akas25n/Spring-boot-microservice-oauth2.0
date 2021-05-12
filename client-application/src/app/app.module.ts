@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlbumListComponent } from './album-list/album-list.component';
-import {HttpClientModule} from "@angular/common/http";
 import { CreateAlbumComponent } from './create-album/create-album.component';
 import { FormsModule } from '@angular/forms';
+import {APP_INITIALIZER, NgModule} from "@angular/core";
+import {HttpClientModule} from "@angular/common/http";
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import {initializeKeycloak} from "./utility/app.init";
 
 @NgModule({
   declarations: [
@@ -17,10 +19,18 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, 
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

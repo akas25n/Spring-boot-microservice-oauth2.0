@@ -172,11 +172,11 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-resource-server:5.4.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-core:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-jose:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: com.nimbusds:nimbus-jose-jwt:8.20.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.stephenc.jcip:jcip-annotations:1.0-1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-oauth2-core:5.4.6" level="project" />
     <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:2.0.0" level="project" />
   </component>
 </module>

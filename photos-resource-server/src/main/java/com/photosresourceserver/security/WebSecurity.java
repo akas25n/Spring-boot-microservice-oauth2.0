@@ -1,4 +1,4 @@
-package com.albumsresourceserver.security;
+package com.photosresourceserver.security;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,13 +18,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.cors()
             .and()
             .authorizeRequests()
-            .antMatchers(HttpMethod.GET, "/api/albums/*","/api/albums/**")
+            .antMatchers(HttpMethod.GET, "/api/photos")
             .authenticated()
-            .antMatchers(HttpMethod.POST, "/api/albums")
+            .antMatchers(HttpMethod.POST, "/api/photos/**")
             .hasRole("admin")
-            .antMatchers(HttpMethod.PUT, "/api/albums/*")
-            .hasRole("admin")
-            .antMatchers(HttpMethod.DELETE, "/api/albums/*")
+            .antMatchers(HttpMethod.DELETE, "/api/photos/**")
             .hasRole("superadmin")
             .anyRequest().authenticated()
             .and()

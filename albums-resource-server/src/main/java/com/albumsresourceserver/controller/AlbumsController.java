@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/albums")
-@CrossOrigin(origins = "http://localhost:4200")
 public class AlbumsController {
 
     private AlbumService albumService;
@@ -46,6 +45,7 @@ public class AlbumsController {
         Album album = albumService.findAlbumsById(id);
         album.setAlbumDescription(newAlbum.getAlbumDescription());
         album.setAlbumTitle(newAlbum.getAlbumTitle());
+        album.setAlbumCreatedOn(newAlbum.getAlbumCreatedOn());
         album.setAlbumImage(newAlbum.getAlbumImage());
 
         return albumService.saveNewAlbum(album);
