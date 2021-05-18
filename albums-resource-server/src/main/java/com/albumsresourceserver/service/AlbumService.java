@@ -41,18 +41,14 @@ public class AlbumService {
     }
 
     public AlbumResponse findAlbumsResponseById(long albumId) {
+
         Album album = albumRepository.findAlbumsById(albumId);
-
         AlbumResponse albumResponse = new ModelMapper().map(album, AlbumResponse.class);
-
         String photosUrl = String.format("http://PHOTOS-R-SERVER/api/photos/%s", albumId);
-
         ResponseEntity<List<PhotoResponse>> photoListResponse = restTemplate.exchange(photosUrl, HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<PhotoResponse>>() {});
-
         List<PhotoResponse> photosList = photoListResponse.getBody();
         albumResponse.setPhotos(photosList);
-
         return albumResponse;
     }
 }

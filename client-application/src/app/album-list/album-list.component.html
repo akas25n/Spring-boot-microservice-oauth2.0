@@ -5,11 +5,11 @@
       <img class="card-img-top" style="height: 150px;" src="{{album.albumImage}}"  alt="Card image cap">
       <div class="card-body"   style="height: 210px;">
         <h5 class="card-title">{{album.albumTitle}}</h5>
-        <p class="card-text">{{album.albumDescription}}</p>
+        <p class="card-text desc">{{album.albumDescription}}</p>
         <p class="card-text">Created On : {{album.albumCreatedOn}}</p>
         <div>
-          <button type="button" class="btn btn-primary mr-2">View</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-primary mr-2" (click)="onAlbumView(album.id)">View</button>
+          <button type="button" class="btn btn-danger" (click)="deleteAlbum(album.id)">Delete</button>
         </div>
       </div>
     </div>

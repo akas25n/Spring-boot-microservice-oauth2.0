@@ -10,7 +10,7 @@ import { AlbumService } from '../services/album.service';
 })
 export class CreateAlbumComponent implements OnInit {
 
-  public album: Album;
+  album: Album = new Album();
 
   constructor( private albumService: AlbumService,
     private router: Router) { }

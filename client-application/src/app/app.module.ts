@@ -9,12 +9,14 @@ import {APP_INITIALIZER, NgModule} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
+import { AlbumDetailsComponent } from './album-details/album-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumListComponent,
-    CreateAlbumComponent
+    CreateAlbumComponent,
+    AlbumDetailsComponent
   ],
   imports: [
     BrowserModule,
