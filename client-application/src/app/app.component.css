@@ -5,3 +5,7 @@
 .navbar-light .navbar-nav .nav-link {
     color: #f8f9fa;
 }
+
+a {
+  cursor: pointer;
+}

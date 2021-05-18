@@ -18,7 +18,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.cors()
             .and()
             .authorizeRequests()
-            .antMatchers(HttpMethod.GET, "/api/albums/*","/api/albums/**")
+/*            .antMatchers(HttpMethod.GET, "/api/albums/*")
+            .authenticated()*/
+            .antMatchers(HttpMethod.GET, "/api/albums/**")
             .authenticated()
             .antMatchers(HttpMethod.POST, "/api/albums")
             .hasRole("admin")
