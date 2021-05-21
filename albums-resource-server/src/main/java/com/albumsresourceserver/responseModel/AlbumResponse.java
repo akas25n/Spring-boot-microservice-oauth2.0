@@ -4,6 +4,7 @@ import java.util.List;
 
 public class AlbumResponse {
 
+    private long id;
     private String albumTitle;
     private String albumDescription;
     public String albumCreatedOn;
@@ -13,12 +14,20 @@ public class AlbumResponse {
     public AlbumResponse() {
     }
 
-    public AlbumResponse(String albumTitle, String albumDescription, String albumCreatedOn, String albumImage, List<PhotoResponse> photos) {
+    public AlbumResponse(long id, String albumTitle, String albumDescription, String albumCreatedOn, String albumImage, List<PhotoResponse> photos) {
         this.albumTitle = albumTitle;
         this.albumDescription = albumDescription;
         this.albumCreatedOn = albumCreatedOn;
         this.albumImage = albumImage;
         this.photos = photos;
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
+    }
+    public void setId() {
+        this.id = id;
     }
 
     public String getAlbumTitle() {

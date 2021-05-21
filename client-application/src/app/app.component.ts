@@ -9,6 +9,9 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
 
+  isAdmin = false;
+  isGuest = false;
+
   userName: string;
   userRole: string;
 
@@ -39,10 +42,14 @@ export class AppComponent {
   getRole(): void{
     if (this.keycloakService.isUserInRole('admin', 'photoalbum')){
       this.userRole = "Admin";
+      this.isAdmin = true;
     }
     else if (this.keycloakService.isUserInRole('superadmin', 'photoalbum')){
       this.userRole = "Super Admin";
     }
-    else this.userRole = "Guest";
+    else{
+      this.userRole = "Guest";
+      this.isGuest = true;
+    }
   }
 }

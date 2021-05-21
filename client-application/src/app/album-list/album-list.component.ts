@@ -3,6 +3,7 @@ import {Album} from "../models/album";
 import {AlbumService} from "../services/album.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-album-list',
@@ -10,14 +11,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./album-list.component.css']
 })
 export class AlbumListComponent implements OnInit {
+  isAdmin = false;
+  isGuest = false;
 
   albumId: number;
   public albums: Album[];
 
-  constructor( private albumService: AlbumService, private router: Router) { }
+  constructor( private albumService: AlbumService, private router: Router, private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
     this.getAlbums();
+    this.getRole();
   }
 
   public getAlbums(): void{
@@ -44,6 +48,15 @@ export class AlbumListComponent implements OnInit {
 
   public reloadPage(){
     window.location.reload();
+  }
+
+  getRole(): void{
+    if (this.keycloakService.isUserInRole('admin', 'photoalbum')){
+      this.isAdmin = true;
+    }
+    else if (this.keycloakService.isUserInRole('superadmin', 'photoalbum')){
+    } else
+      this.isGuest = true;
   }
 
 }

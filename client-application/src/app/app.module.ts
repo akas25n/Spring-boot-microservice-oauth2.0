@@ -10,13 +10,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
 import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { AddAlbumPhotosComponent } from './add-album-photos/add-album-photos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumListComponent,
     CreateAlbumComponent,
-    AlbumDetailsComponent
+    AlbumDetailsComponent,
+    AddAlbumPhotosComponent
   ],
   imports: [
     BrowserModule,

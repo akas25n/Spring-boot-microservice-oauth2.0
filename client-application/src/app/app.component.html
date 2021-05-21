@@ -4,8 +4,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav  ">
-      <a class="nav-item nav-link" routerLink="/create-album" >Create Album<span class="sr-only">(current)</span></a>
+    <div class="navbar-nav" >
+      <a class="nav-item nav-link" routerLink="/create-album" *ngIf="!isGuest">Create Album<span class="sr-only">(current)</span></a>
     </div>
     <div class="navbar-nav  ml-auto ">
       <p class="nav-item nav-link">{{userName}} ({{userRole}})</p>

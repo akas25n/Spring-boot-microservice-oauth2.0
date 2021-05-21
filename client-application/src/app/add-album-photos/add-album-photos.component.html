@@ -1,0 +1,34 @@
+<div class="container">
+  <nav class="navbar navbar-light" style="background-color: #d5d8da;">
+        <span class="navbar-text">
+          Add Photo
+        </span>
+  </nav>
+  <br>
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="photo.photoTitle" placeholder="Title" name="photoTitle">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="photo.photoDescription" placeholder="Description" name="photoDescription">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="photo.photoUrl" placeholder="Image Url" name="photoUrl">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="photo.photoLocation" placeholder="Photo Location" name="photoLocation">
+      </div>
+    </div>
+    <br>
+  </form>
+  <div style="text-align: center;">
+    <button type="submit" class="btn mr-1 btn-primary" (click)="onSubmit()">Submit</button>
+    <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  </div>
+</div>
+
+
