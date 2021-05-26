@@ -11,6 +11,7 @@ import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AddAlbumPhotosComponent } from './add-album-photos/add-album-photos.component';
+import { EditAlbumComponent } from './edit-album/edit-album.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddAlbumPhotosComponent } from './add-album-photos/add-album-photos.com
     AlbumListComponent,
     CreateAlbumComponent,
     AlbumDetailsComponent,
-    AddAlbumPhotosComponent
+    AddAlbumPhotosComponent,
+    EditAlbumComponent
   ],
   imports: [
     BrowserModule,

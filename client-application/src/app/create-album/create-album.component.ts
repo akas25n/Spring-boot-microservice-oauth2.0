@@ -32,7 +32,7 @@ export class CreateAlbumComponent implements OnInit {
   onSubmit(){
     this.saveAlbum();
     this.redirectToHome();
-    this.reloadPage();
+   // this.reloadPage();
   }
 
   public reloadPage(){

@@ -38,12 +38,16 @@ export class AlbumListComponent implements OnInit {
   public deleteAlbum(id: number){
     this.albumService.deleteALbum(id).subscribe( data =>{
       console.log(data);
-      this.reloadPage();
+      this.router.navigate(['/home']);
     })
   }
 
   public onAlbumView(id: number){
     this.router.navigate(['/album/details/', id]);
+  }
+
+  public onEditAlbum(id: number){
+    this.router.navigate(['/album/edit', id]);
   }
 
   public reloadPage(){

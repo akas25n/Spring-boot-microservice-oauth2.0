@@ -5,6 +5,7 @@ import { CreateAlbumComponent } from './create-album/create-album.component';
 import {AuthGuard} from "./utility/app.guard";
 import {AlbumDetailsComponent} from "./album-details/album-details.component";
 import {AddAlbumPhotosComponent} from "./add-album-photos/add-album-photos.component";
+import {EditAlbumComponent} from "./edit-album/edit-album.component";
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
   {path:'create-album', component: CreateAlbumComponent},
   {path:'album/details/:id', component: AlbumDetailsComponent},
+  {path:'album/edit/:id', component: EditAlbumComponent},
   {path:'album/add-photos/:id', component: AddAlbumPhotosComponent}
 ];
 
