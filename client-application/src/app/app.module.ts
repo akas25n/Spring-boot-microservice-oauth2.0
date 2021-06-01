@@ -12,6 +12,7 @@ import {initializeKeycloak} from "./utility/app.init";
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AddAlbumPhotosComponent } from './add-album-photos/add-album-photos.component';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditAlbumComponent } from './edit-album/edit-album.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    NgbModule
   ],
   providers: [
     {

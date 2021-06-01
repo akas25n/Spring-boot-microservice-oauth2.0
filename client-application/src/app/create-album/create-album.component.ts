@@ -32,7 +32,7 @@ export class CreateAlbumComponent implements OnInit {
   onSubmit(){
     this.saveAlbum();
     this.redirectToHome();
-   // this.reloadPage();
+
   }
 
   public reloadPage(){
@@ -41,6 +41,7 @@ export class CreateAlbumComponent implements OnInit {
 
   onCancel(){
     this.router.navigate(['/home']);
+    window.location.reload();
   }
 
 }

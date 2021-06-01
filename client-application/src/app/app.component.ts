@@ -30,7 +30,7 @@ export class AppComponent {
     });
   }
 
-  logout(): void{
+  onLogout(): void{
     this.keycloakService.logout();
     this.goHome();
   }
