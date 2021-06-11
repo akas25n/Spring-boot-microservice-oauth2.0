@@ -21,7 +21,6 @@ export class CreateAlbumComponent implements OnInit {
   saveAlbum(){
     this.albumService.createAlbum(this.album).subscribe(data=>
       {console.log(data);
-      this.redirectToHome();
     },
       error=> console.log(error));
   }
@@ -32,10 +31,17 @@ export class CreateAlbumComponent implements OnInit {
 
   onSubmit(){
     this.saveAlbum();
+    this.redirectToHome();
+
+  }
+
+  public reloadPage(){
+    window.location.reload();
   }
 
   onCancel(){
-    this.redirectToHome();
+    this.router.navigate(['/home']);
+    window.location.reload();
   }
 
 }

@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-12"  *ngFor="let album of albums" style="margin-bottom: 25px;">
-    <div class="card text-center">
-      <img class="card-img-top" style="height: 150px;" src="{{album.albumImage}}"  alt="Card image cap">
+    <div class="col-lg-4 col-md-4 col-sm-12"  *ngFor="let album of albums" style="margin-bottom: 25px;">
+    <div class="card text-center" (click)="onAlbumView(album.id)">
+      <img class="card-img-top" style="height: 210px;" src="{{album.albumImage}}"  alt="Card image cap">
       <div class="card-body"   style="height: 210px;">
         <h5 class="card-title">{{album.albumTitle}}</h5>
         <p class="card-text desc">{{album.albumDescription}}</p>
         <p class="card-text">Created On : {{album.albumCreatedOn}}</p>
         <div>
-          <button type="button" class="btn btn-primary mr-2" (click)="onAlbumView(album.id)">View</button>
-          <button type="button" class="btn btn-danger" (click)="deleteAlbum(album.id)">Delete</button>
+          <button type="button" class="btn btn-info mr-2" (click)="onAlbumView(album.id)">View</button>
+          <button type="button" class="btn btn-primary mr-2" (click)="onEditAlbum(album.id)" [disabled]="isGuest">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="deleteAlbum(album.id)" [disabled]="isGuest || isAdmin">Delete</button>
         </div>
       </div>
     </div>

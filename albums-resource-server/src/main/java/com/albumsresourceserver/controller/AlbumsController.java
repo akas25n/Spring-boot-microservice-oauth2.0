@@ -30,6 +30,13 @@ public class AlbumsController {
         return albumResponse;
     }
 
+    //add photos in album
+    @PostMapping("{albumId}/photos")
+    public AlbumResponse addAlbumPhotos(@PathVariable long albumId){
+        AlbumResponse albumResponse = albumService.findAlbumsResponseById(albumId);
+        return albumResponse;
+    }
+
     @GetMapping("/{id}")
     public Album findAlbumsById(@PathVariable Long id){
         return albumService.findAlbumsById(id);

@@ -24,10 +24,11 @@
               </div>
           </div>
           <br>
-          <div style="text-align: center;">
-            <button type="submit" class="btn mr-1 btn-primary">Submit</button>
-            <button type="submit" class="btn btn-secondary">Cancel</button>
-          </div>
+
     </form>
+  <div style="text-align: center;">
+    <button type="submit" class="btn mr-2 btn-primary" (click)="onSubmit()">Submit</button>
+    <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  </div>
 </div>
 

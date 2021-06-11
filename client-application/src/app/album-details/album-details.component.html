@@ -1,20 +1,22 @@
-
-
 <div class="container">
-  <nav class="navbar navbar-light" style="background-color: #f8f9fa;">
-    <h4 class="navbar-text">{{albumResponse.albumTitle}}</h4>
-    <p class="navbar-text">{{albumResponse.albumDescription}}</p>
-  </nav>
-
+  <div class="jumbotron" style="text-align: center;">
+    <h1>{{albumResponse.albumTitle}}</h1>
+    <p>{{albumResponse.albumDescription}}</p>
+  </div>
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-dm-12">
-
-      <div class="card-body"  *ngFor="let photo of albumResponse.photos">
-        <h5 class="card-title"><img class="card-img-top" src="{{photo.photoUrl}}"  alt="Card image cap"></h5>
-        <h5 class="card-title"><img class="card-img-top" src="{{photo.photoUrl}}"  alt="Card image cap"></h5>
+    <div class="col-lg-6 col-md-6 col-dm-12" *ngFor="let photo of albumResponse.photos">
+      <div class="card-body">
+        <h5 class="card-title">
+          <img class="card-img-top"  style="height: 300px;" src="{{photo.photoUrl}}"  alt="Card image cap">
+        </h5>
       </div>
-
     </div>
+  </div>
+  <div  style="text-align: center;">
+  <hr>
+  <button class="btn btn-primary mr-2" (click)="onAddPhotos(albumResponse.id)" [disabled]="isGuest">Add Photo</button>
+    <button class="btn btn-secondary" (click)="redirectToHome()">Back To Home</button>
+  <hr>
   </div>
 </div>
 

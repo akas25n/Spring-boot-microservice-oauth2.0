@@ -1,0 +1,33 @@
+<div class="container">
+  <nav class="navbar navbar-light" style="background-color: #d5d8da;">
+        <span class="navbar-text">
+          Edit Album
+        </span>
+  </nav>
+  <br>
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="album.albumTitle" placeholder="Title" name="albumTitle">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="album.albumDescription" placeholder="Description" name="albumDescription">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="album.albumImage" placeholder="Image Url" name="albumImage">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" [(ngModel)]="album.albumCreatedOn" placeholder="Creation Date (Format - dd/MM/yyyy)" name="albumCreatedOn">
+      </div>
+    </div>
+    <br>
+
+  </form>
+  <div style="text-align: center;">
+    <button type="submit" class="btn mr-2 btn-primary" (click)="onSubmit()">Submit</button>
+    <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  </div>
+</div>
