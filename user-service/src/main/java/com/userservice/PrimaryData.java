@@ -24,13 +24,13 @@ public class PrimaryData {
     @EventListener
     @Transactional
     public void onAppEvent(ApplicationReadyEvent applicationReadyEvent){
-        User user = new User(1L,
-            "hkahjkf",
+        User user = new User(
+            1L,
+            "abcd1234",
             "Abdur",
             "Rahim",
-            "abdur.rahim@testmail.com",
-            bCryptPasswordEncoder.encode("rahim"),
-            "",
+            "abdur@test.com",
+            bCryptPasswordEncoder.encode("abdur"),
             false);
 
         userRepository.save(user);

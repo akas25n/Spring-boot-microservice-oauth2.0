@@ -13,11 +13,11 @@ import javax.ws.rs.core.MediaType;
 public interface UserApiService {
 
     @GET
-    @Path("/{email}")
-    User getUserDetails(@PathParam("email") String email);
+    @Path("/{username}")
+    RemoteUser getUserDetails(@PathParam("username") String username);
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{email}/password-verify")
-    VerifyUserPasswordResponse verifyPassword(@PathParam("email") String email, String password);
+    @Path("/{username}/password-verify")
+    VerifyUserPasswordResponse verifyPassword(@PathParam("username") String username, String password);
 }

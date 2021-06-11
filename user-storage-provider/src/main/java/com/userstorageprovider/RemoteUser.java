@@ -1,6 +1,6 @@
 package com.userstorageprovider;
 
-public class User {
+public class RemoteUser {
 
     private String userId;
     private String userFirstName;
@@ -8,10 +8,10 @@ public class User {
     private String UserEmail;
     private String userName;
 
-    public User() {
+    public RemoteUser() {
     }
 
-    public User(String userId, String userFirstName, String userLastName, String userEmail, String userName) {
+    public RemoteUser(String userId, String userFirstName, String userLastName, String userEmail, String userName) {
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;

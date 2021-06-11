@@ -8,17 +8,17 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
 import org.keycloak.models.UserModel;
 import org.keycloak.models.credential.PasswordCredentialModel;
-import org.keycloak.storage.UserStorageProvider;
+import org.keycloak.storage.StorageId;
 import org.keycloak.storage.adapter.AbstractUserAdapter;
 import org.keycloak.storage.user.UserLookupProvider;
 
-public class RemoteUserStorageProvider implements UserStorageProvider, UserLookupProvider, CredentialInputValidator {
+public class MyUserStorageProvider implements org.keycloak.storage.UserStorageProvider, UserLookupProvider, CredentialInputValidator {
 
     private KeycloakSession keycloakSession;
     private ComponentModel componentModel;
     private UserApiService userApiService;
 
-    public RemoteUserStorageProvider(KeycloakSession keycloakSession, ComponentModel componentModel, UserApiService userApiService) {
+    public MyUserStorageProvider(KeycloakSession keycloakSession, ComponentModel componentModel, UserApiService userApiService) {
         this.keycloakSession = keycloakSession;
         this.componentModel = componentModel;
         this.userApiService = userApiService;
@@ -29,30 +29,33 @@ public class RemoteUserStorageProvider implements UserStorageProvider, UserLooku
 
     }
 
-    @Override public UserModel getUserById(String s, RealmModel realmModel) {
-        return null;
+    @Override public UserModel getUserById(String id, RealmModel realmModel) {
+
+        StorageId s_id = new StorageId(id);
+        String userName = s_id.getExternalId();
+
+        return getUserByUsername(userName, realmModel);
     }
 
-    @Override public UserModel getUserByUsername(String s, RealmModel realmModel) {
-        return null;
-    }
-
-    @Override public UserModel getUserByEmail(String email, RealmModel realmModel) {
-
+    @Override public UserModel getUserByUsername(String userName, RealmModel realmModel) {
         UserModel userModel = null;
 
-        User user = userApiService.getUserDetails(email);
+        RemoteUser user = userApiService.getUserDetails(userName);
         if (user != null){
-            userModel = createUserModel(email, realmModel);
+            userModel = createUserModel(userName, realmModel);
         }
         return userModel;
     }
 
-    private UserModel createUserModel(String email, RealmModel realmModel){
+    @Override public UserModel getUserByEmail(String email, RealmModel realmModel) {
+        return null;
+    }
+
+    private UserModel createUserModel(String username, RealmModel realmModel){
         return new AbstractUserAdapter(keycloakSession,realmModel, componentModel){
 
             @Override public String getUsername() {
-                return email;
+                return username;
             }
         };
     }
@@ -80,6 +83,6 @@ public class RemoteUserStorageProvider implements UserStorageProvider, UserLooku
         if (verifyPasswordResponse == null){
             return false;
         }
-        return verifyPasswordResponse.getResult();
+        return verifyPasswordResponse.getStatus();
     }
 }

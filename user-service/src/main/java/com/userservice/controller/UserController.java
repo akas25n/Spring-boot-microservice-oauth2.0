@@ -21,20 +21,20 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{email}")
-    public UserResponse findUserByUserEmail(@PathVariable String  email){
-        return userService.getUserDetails(email);
+    @GetMapping("/{username}")
+    public UserResponse findUser(@PathVariable String  username){
+        return userService.getUserDetails(username);
     }
 
-    @PostMapping("/{email}/password-verify")
+    @PostMapping("/{username}/password-verify")
     public VerifyUserPasswordResponse verifyUserPasswordResponse(
-        @PathVariable String email, @RequestBody String password){
+        @PathVariable String username, @RequestBody String userPassword){
 
-        VerifyUserPasswordResponse verifyUserPasswordResponse = new VerifyUserPasswordResponse();
+        VerifyUserPasswordResponse verifyUserPasswordResponse = new VerifyUserPasswordResponse(false);
 
-        UserResponse userResponse = userService.getUserDetails(email,password);
+        UserResponse userResponse = userService.getUserDetails(username,userPassword);
         if (userResponse !=null){
-            verifyUserPasswordResponse.setResult(true);
+            verifyUserPasswordResponse.setStatus(true);
         }
         return verifyUserPasswordResponse;
     }

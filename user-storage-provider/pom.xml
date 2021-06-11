@@ -47,13 +47,7 @@
     </dependencies>
 
     <build>
-        <finalName>my-user-storage-provider</finalName>
-        <!--<plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>-->
+        <finalName>user-storage-provider</finalName>
     </build>
 
 </project>

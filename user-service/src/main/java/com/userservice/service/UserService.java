@@ -19,10 +19,10 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public UserResponse getUserDetails(String email){
+    public UserResponse getUserDetails(String username){
 
         UserResponse userResponse = new UserResponse();
-        User user = userRepository.findByUserEmail(email);
+        User user = userRepository.findByUserEmail(username);
         if (user == null){
             return userResponse;
         }
@@ -30,18 +30,18 @@ public class UserService {
         return userResponse;
     }
 
-    public UserResponse getUserDetails(String email, String password){
+    public UserResponse getUserDetails(String username, String password){
 
-        UserResponse userResponse = new UserResponse();
+        UserResponse userResponse = null;
 
-        User byUserEmail = userRepository.findByUserEmail(email);
-        if (byUserEmail == null){
+        User user = userRepository.findByUserEmail(username);
+        if (user == null){
             return userResponse;
         }
-        if (bCryptPasswordEncoder.matches(password, byUserEmail.getEncryptedPassword())){
+        if (bCryptPasswordEncoder.matches(password, user.getEncryptedPassword())){
             System.out.println("Password matches!!");
             userResponse = new UserResponse();
-            BeanUtils.copyProperties(byUserEmail, userResponse);
+            BeanUtils.copyProperties(user, userResponse);
         }
         return userResponse;
     }

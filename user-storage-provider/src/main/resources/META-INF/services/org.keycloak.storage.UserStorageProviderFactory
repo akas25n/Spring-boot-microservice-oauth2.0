@@ -1,1 +1,1 @@
-com.keycloak.remoteuserstorageprovider.RemoteUserStorageProviderFactory
+com.userstorageprovider.MyUserStorageProviderFactory

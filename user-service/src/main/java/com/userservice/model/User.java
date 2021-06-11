@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 5313493413859894403L;
+    private static final long serialVersionUID = 6313493313859894451L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,6 @@ public class User implements Serializable {
     private String userFirstName;
     private String userLastName;
     private String userEmail;
-    private String userEmailVerificationToken;
     private String encryptedPassword;
     private boolean emailVerificationStatus;
 
@@ -27,14 +26,13 @@ public class User implements Serializable {
     }
 
     public User(long id, String userId, String userFirstName, String userLastName,
-        String userEmail, String userEmailVerificationToken, String encryptedPassword,
+        String userEmail, String encryptedPassword,
         boolean emailVerificationStatus) {
         this.id = id;
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
-        this.userEmailVerificationToken = userEmailVerificationToken;
         this.encryptedPassword = encryptedPassword;
         this.emailVerificationStatus = emailVerificationStatus;
     }
@@ -69,14 +67,6 @@ public class User implements Serializable {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-    }
-
-    public String getUserEmailVerificationToken() {
-        return userEmailVerificationToken;
-    }
-
-    public void setUserEmailVerificationToken(String userEmailVerificationToken) {
-        this.userEmailVerificationToken = userEmailVerificationToken;
     }
 
     public String getEncryptedPassword() {

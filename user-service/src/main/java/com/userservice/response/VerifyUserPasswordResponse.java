@@ -2,20 +2,20 @@ package com.userservice.response;
 
 public class VerifyUserPasswordResponse {
 
-    private boolean result;
+    private boolean status;
 
     public VerifyUserPasswordResponse() {
     }
 
     public VerifyUserPasswordResponse(boolean result) {
-        this.result = result;
+        this.status = result;
     }
 
-    public boolean isResult() {
-        return result;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setResult(boolean result) {
-        this.result = result;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
